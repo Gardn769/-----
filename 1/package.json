@@ -2,9 +2,10 @@
   "name": "1",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "date.js",
   "bin": {
-    "current": "./index.js"
+    "current": "./date.js",
+    "guess": "./guess_number.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

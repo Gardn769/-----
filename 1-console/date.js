@@ -3,7 +3,6 @@
 const yargs = require('yargs/yargs');
 const { hideBin } = require('yargs/helpers');
 
-console.log(process.argv);
 yargs(hideBin(process.argv))
 .options({
     'year': {
@@ -20,7 +19,6 @@ yargs(hideBin(process.argv))
     },
 })
 .command(['current','$0'], 'Текущая дата', () => {}, (argv) => {
-    console.log(argv);
     const date = new Date();
     if (argv.year)
         console.log(date.getFullYear());
@@ -30,7 +28,7 @@ yargs(hideBin(process.argv))
         console.log(date.getDate())
     else
     {
-        console.log(date + '');
+        console.log(date);
     }
 
 })
@@ -39,13 +37,13 @@ yargs(hideBin(process.argv))
     date.setFullYear(date.getFullYear() + (argv.y ?? 0));
     date.setMonth(date.getMonth()       + (argv.m ?? 0));
     date.setDate(date.getDate()         + (argv.d ?? 0));
-    console.log(date + '');
+    console.log(date);
 })
 .command('sub', 'Дата в прошлом', () => {}, (argv) => {
     const date = new Date();
     date.setFullYear(date.getFullYear() - (argv.y ?? 0));
     date.setMonth(date.getMonth()       - (argv.m ?? 0));
     date.setDate(date.getDate()         - (argv.d ?? 0));
-    console.log(date + '');
+    console.log(date);
 })
 .argv
